@@ -85,111 +85,99 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-          child: Container(
-        height: double.infinity,
-        width: double.infinity,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(width: 20.w),
+                  MaterialButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CategoryScreen()));
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    height: 34.h,
+                    color: const Color.fromARGB(244, 175, 25, 30),
+                    child: Row(
                       children: [
-                        SizedBox(width: 20.w),
-                        MaterialButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const CategoryScreen()));
-                          },
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)),
-                          height: 34.h,
-                          color: const Color.fromARGB(244, 175, 25, 30),
-                          child: Row(
-                            children: [
-                              SvgPicture.asset(
-                                'assets/svg/home/categories.svg',
-                                height: 12,
-                              ),
-                              Text(
-                                '  Categories',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w400),
-                              )
-                            ],
-                          ),
+                        SvgPicture.asset(
+                          'assets/svg/home/categories.svg',
+                          height: 12,
                         ),
-                        SizedBox(width: 10.w),
-                        Expanded(
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(
-                                20.0), // Adjust the radius as needed
-                            child: Container(
-                              height: 34.h,
-                              decoration: BoxDecoration(
-                                color: Colors.white, // Set the background color
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.3),
-                                    blurRadius: 2,
-                                    offset: const Offset(-2, 3),
-                                    blurStyle: BlurStyle.outer,
-                                    spreadRadius: 0.7,
-                                  )
-                                ],
-                              ),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                    //hintText: 'Search',
-                                    prefixIcon: Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 11.h),
-                                      child: SvgPicture.asset(
-                                        'assets/svg/home/search.svg',
-                                      ),
-                                    ),
-                                    border: InputBorder.none,
-                                    suffixIcon: Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: SvgPicture.asset(
-                                          'assets/svg/home/clear.svg'),
-                                    )),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 20.w),
-                      ],
-                    ),
-                    SizedBox(height: 15.h),
-                    Container(
-                      width: 410.w,
-                      height: 230.h,
-                      child: const SlidingWidget(),
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(width: 20.w),
                         Text(
-                          'Featured Sub Categories',
+                          '  Categories',
                           style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14.sp,
-                              color: const Color.fromARGB(255, 100, 54, 26)),
-                        ),
+                              color: Colors.white,
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400),
+                        )
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                  SizedBox(width: 10.w),
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(
+                          20.0), // Adjust the radius as needed
+                      child: Container(
+                        height: 34.h,
+                        decoration: BoxDecoration(
+                          color: Colors.white, // Set the background color
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              blurRadius: 2,
+                              offset: const Offset(-2, 3),
+                              blurStyle: BlurStyle.outer,
+                              spreadRadius: 0.7,
+                            )
+                          ],
+                        ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              //hintText: 'Search',
+                              prefixIcon: Padding(
+                                padding: EdgeInsets.symmetric(vertical: 11.h),
+                                child: SvgPicture.asset(
+                                  'assets/svg/home/search.svg',
+                                ),
+                              ),
+                              border: InputBorder.none,
+                              suffixIcon: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: SvgPicture.asset(
+                                    'assets/svg/home/clear.svg'),
+                              )),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 20.w),
+                ],
+              ),
+              SizedBox(height: 15.h),
+              SizedBox(
+                width: 410.w,
+                height: 230.h,
+                child: const SlidingWidget(),
+              ),
+              Row(
+                children: [
+                  SizedBox(width: 20.w),
+                  Text(
+                    'Featured Sub Categories',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14.sp,
+                        color: const Color.fromARGB(255, 100, 54, 26)),
+                  ),
+                ],
               ),
               SizedBox(height: 5.h),
               Container(
@@ -224,15 +212,20 @@ class HomeScreen extends StatelessWidget {
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 14.sp,
-                        color: Color.fromARGB(255, 100, 54, 26)),
+                        color: const Color.fromARGB(255, 100, 54, 26)),
                   ),
                 ],
               ),
               SizedBox(height: 15.h),
-              Container(
-                height: 980,
-                width: double.infinity,
-                child: const FrequentlyOrdered(),
+              /* const SizedBox(
+              height: 980,
+              width: double.infinity,
+              child: ,
+            ), */
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: FrequentlyOrdered(),
               ),
               SizedBox(height: 15.h),
               Row(
@@ -243,20 +236,20 @@ class HomeScreen extends StatelessWidget {
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 14.sp,
-                        color: Color.fromARGB(255, 100, 54, 26)),
+                        color: const Color.fromARGB(255, 100, 54, 26)),
                   ),
                 ],
               ),
               SizedBox(height: 15.h),
-              Container(
+              const SizedBox(
                 height: 200,
                 width: double.infinity,
-                child: const HotDeals(),
+                child: HotDeals(),
               ),
             ],
           ),
         ),
-      )),
+      ),
     );
   }
 }
